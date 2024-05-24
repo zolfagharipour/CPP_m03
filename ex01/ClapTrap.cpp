@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:38:32 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/24 21:10:24 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:54:01 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
-    std::cout << "ClapTrap " << _name << " has been born!" << std::endl;
+    std::cout << _name << " has been born!" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap " << _name << " is dead!" << std::endl;
+    std::cout << _name << " is dead!" << std::endl;
 }
 
 bool    ClapTrap::_mana(void)
