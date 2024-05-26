@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 21:00:15 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/26 16:46:19 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/05/26 16:54:57 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
+FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 {
     setHitPoint(100);
-    setEnergyPoint(50);
-    setAttackDamage(20);
-    std::cout << "ScavTrap " << name << " has been born!" << std::endl;  
+    setEnergyPoint(100);
+    setAttackDamage(30);
+    std::cout << "FragTrap " << name << " has been born!" << std::endl;  
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-    std::cout << "ScavTrap " << this->getName() << " is dead!" << std::endl;
+    std::cout << "FragTrap " << this->getName() << " is dead!" << std::endl;
 }
 
-void    ScavTrap::attack( const std::string& target )
+void    FragTrap::attack( const std::string& target )
 {
     if (!hp() || !mana())
         return ;
     
-    std::cout << "ScavTrap " << getName() << " attacks " << target
+    std::cout << "FragTrap " << getName() << " attacks " << target
         << ", causing " << getAttackDamage()
         << " points of damage!" << std::endl;
     
     this->useMana();
 }
 
-void    ScavTrap::guardGate( void )
+void    FragTrap::highFivesGuys( void )
 {
-    std::cout << "ScavTrap " << this->getName() << " is now in Gate-keeper mode!" << std::endl;
+    std::cout << "Positive high fives!" << std::endl;
 }

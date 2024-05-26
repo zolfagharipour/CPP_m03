@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:37:13 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/24 20:27:53 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/05/26 16:25:19 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,28 @@ private:
     int         _energyPoint;
     int         _attackDamage;
     
-    bool        _mana( void );
-    bool        _hp( void );
     
 public:
     ClapTrap( std::string name );
+    ClapTrap ( const ClapTrap& other );
+    ClapTrap& operator=( const ClapTrap& other );
     ~ClapTrap();
 
-    void    attack( const std::string& target );
-    void    takeDamage( unsigned int amount );
-    void    beRepaired( unsigned int amount );
+    bool            mana( void );
+    bool            hp( void );
+    void            useMana( void );
+    
+    void            setName( std::string name );
+    void            setHitPoint( int hp );
+    void            setEnergyPoint( int mana );
+    void            setAttackDamage( int dmg );
+    std::string     getName( void ) const;
+    int             getHitPoint( void ) const;
+    int             getEnergyPoint( void ) const;
+    int             getAttackDamage( void ) const;
+    void            attack( const std::string& target );
+    void            takeDamage( unsigned int amount );
+    void            beRepaired( unsigned int amount );
 };
 
 #endif

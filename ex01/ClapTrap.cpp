@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:38:32 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/24 20:54:01 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/05/26 16:29:48 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,37 @@
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
-    std::cout << _name << " has been born!" << std::endl;
+    std::cout << "ClapTrap " << _name << " has been born!" << std::endl;
+}
+
+ClapTrap::ClapTrap ( const ClapTrap& other )
+{
+    setName(other.getName());
+    setHitPoint(other.getHitPoint());
+    setEnergyPoint(other.getEnergyPoint());
+    setAttackDamage(other.getAttackDamage());
+}
+
+ClapTrap& ClapTrap::operator=( const ClapTrap& other )
+{
+    if (this == &other)
+        return (*this);
+    setName(other.getName());
+    setHitPoint(other.getHitPoint());
+    setEnergyPoint(other.getEnergyPoint());
+    setAttackDamage(getAttackDamage());
+    return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << _name << " is dead!" << std::endl;
+    std::cout << "ClapTrap " << _name << " is dead!" << std::endl;
 }
 
-bool    ClapTrap::_mana(void)
+
+
+
+bool    ClapTrap::mana( void )
 {
     if (_energyPoint)
         return (1);
@@ -31,7 +53,7 @@ bool    ClapTrap::_mana(void)
     return (0);
 }
 
-bool    ClapTrap::_hp(void)
+bool    ClapTrap::hp( void )
 {
     if (_hitPoint)
         return (1);
@@ -39,17 +61,67 @@ bool    ClapTrap::_hp(void)
     return (0);
 }
 
+void    ClapTrap::useMana( void )
+{
+    _energyPoint--;
+}
+
+
+
+void    ClapTrap::setName( std::string name )
+{
+    this->_name = name;
+}
+
+void    ClapTrap::setHitPoint( int hp )
+{
+    this->_hitPoint = hp;
+}
+
+void            ClapTrap::setEnergyPoint( int mana )
+{
+    this->_energyPoint = mana;
+}
+
+void            ClapTrap::setAttackDamage( int dmg )
+{
+    this->_attackDamage = dmg;
+}
+
+std::string     ClapTrap::getName( void ) const
+{
+    return (this->_name);
+}
+
+int      ClapTrap::getHitPoint( void ) const
+{
+    return(this->_hitPoint);
+}
+
+int      ClapTrap::getEnergyPoint( void ) const
+{
+    return(this->_energyPoint);
+}
+
+int      ClapTrap::getAttackDamage( void ) const
+{
+    return(this->_attackDamage);
+}
+
+
+
+
 
 void    ClapTrap::attack(const std::string& target)
 {
-    if (!_hp() || !_mana())
+    if (!hp() || !mana())
         return ;
     
-    std::cout << _name << " attacks " << target
+    std::cout << "ClapTrap " << _name << " attacks " << target
         << ", causing " << _attackDamage
         << " points of damage!" << std::endl;
     
-    _energyPoint--;
+    useMana();
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
@@ -62,17 +134,17 @@ void    ClapTrap::takeDamage(unsigned int amount)
         damage = _hitPoint;
     _hitPoint -= damage;
     
-    std::cout << _name << " recieved " << damage
+    std::cout << "ClapTrap " << _name << " recieved " << damage
         << " points of damage!\tHP: " << _hitPoint << std::endl;
 }
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if (!_hp() || !_mana())
+    if (!hp() || !mana())
         return ;
     _hitPoint += amount;
     
-    std::cout << _name << " heals +" << amount
+    std::cout << "ClapTrap " << _name << " heals +" << amount
         << "\tHP: " << _hitPoint << std::endl;
-    _energyPoint--;
+    useMana();
 }

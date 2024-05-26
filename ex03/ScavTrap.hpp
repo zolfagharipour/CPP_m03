@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 19:39:06 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/26 16:33:52 by mzolfagh         ###   ########.fr       */
+/*   Created: 2024/05/24 20:58:14 by mzolfagh          #+#    #+#             */
+/*   Updated: 2024/05/26 20:14:51 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main()
+# include "ClapTrap.hpp"
+
+class ScavTrap : public virtual ClapTrap
 {
-    ScavTrap    scav("Scav");
-    ScavTrap    scav1(scav);
-    ScavTrap    scav2 = scav1;
 
-    scav1.attack("Scav2");
-    scav2.takeDamage(scav1.getAttackDamage());
-    scav2.beRepaired(12);
-    scav.guardGate();
-    
-}
+public:
+    ScavTrap( std::string name );
+    ~ScavTrap( void );
+
+    void    attack( const std::string& target );
+    void    guardGate( void );
+};
+
+
+#endif
