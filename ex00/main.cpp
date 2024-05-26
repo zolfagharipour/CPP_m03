@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:39:06 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/24 20:51:07 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/05/26 15:45:14 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 int main()
 {
     ClapTrap    clap("Clap");
+    ClapTrap    clap1(clap);
     ClapTrap    trap("Trap");
+    ClapTrap    trap1 = trap;
+    
 
-    clap.attack("Trap");
-    trap.takeDamage(9);
-    trap.beRepaired(5);
-    trap.attack("Clap");
-    clap.takeDamage(3000);
-    clap.beRepaired(9000);
-    clap.attack("Trap");    
+    clap1.attack("Trap");
+    trap1.takeDamage(9);
+    trap1.beRepaired(5);
+    trap1.attack("Clap");
+    clap1.takeDamage(3000);
+    clap1.beRepaired(9000);
+    clap1.attack("Trap");
     
 }

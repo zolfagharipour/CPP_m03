@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:38:32 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/24 21:10:24 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/05/26 15:59:39 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,32 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoint(
     std::cout << "ClapTrap " << _name << " has been born!" << std::endl;
 }
 
+ClapTrap::ClapTrap ( const ClapTrap& other )
+{
+    setName(other.getName());
+    setHitPoint(other.getHitPoint());
+    setEnergyPoint(other.getEnergyPoint());
+    setAttackDamage(other.getAttackDamage());
+}
+
+ClapTrap& ClapTrap::operator=( const ClapTrap& other )
+{
+    if (this == &other)
+        return (*this);
+    setName(other.getName());
+    setHitPoint(other.getHitPoint());
+    setEnergyPoint(other.getEnergyPoint());
+    setAttackDamage(getAttackDamage());
+    return (*this);
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap " << _name << " is dead!" << std::endl;
 }
+
+
+
 
 bool    ClapTrap::_mana(void)
 {
@@ -38,6 +60,52 @@ bool    ClapTrap::_hp(void)
     std::cout << "No HP!" << std::endl;
     return (0);
 }
+
+
+
+
+void    ClapTrap::setName( std::string name )
+{
+    this->_name = name;
+}
+
+void    ClapTrap::setHitPoint( int hp )
+{
+    this->_hitPoint = hp;
+}
+
+void            ClapTrap::setEnergyPoint( int mana )
+{
+    this->_energyPoint = mana;
+}
+
+void            ClapTrap::setAttackDamage( int dmg )
+{
+    this->_attackDamage = dmg;
+}
+
+std::string     ClapTrap::getName( void ) const
+{
+    return (this->_name);
+}
+
+int      ClapTrap::getHitPoint( void ) const
+{
+    return(this->_hitPoint);
+}
+
+int      ClapTrap::getEnergyPoint( void ) const
+{
+    return(this->_energyPoint);
+}
+
+int      ClapTrap::getAttackDamage( void ) const
+{
+    return(this->_attackDamage);
+}
+
+
+
 
 
 void    ClapTrap::attack(const std::string& target)
