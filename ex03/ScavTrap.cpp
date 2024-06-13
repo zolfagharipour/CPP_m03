@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 21:00:15 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/06/01 16:14:58 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:30:43 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ ScavTrap::~ScavTrap()
 
 void    ScavTrap::attack( const std::string& target )
 {
-    if (!hp() || !mana())
+    if (!_hp() || !_mana())
         return ;
     
     std::cout << "ScavTrap " << getName() << " attacks " << target
         << ", causing " << getAttackDamage()
         << " points of damage!" << std::endl;
-    
-    this->useMana();
+
+    this->_useMana();
 }
 
 void    ScavTrap::guardGate( void )

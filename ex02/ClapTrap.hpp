@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:37:13 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/06/13 11:19:35 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:25:10 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ protected:
     int         _hitPoint;
     int         _energyPoint;
     int         _attackDamage;
+    bool        _mana( void );
+    bool        _hp( void );
+    void        _useMana( void );
     
     
 public:
@@ -31,9 +34,6 @@ public:
     ClapTrap& operator=( const ClapTrap& other );
     ~ClapTrap();
 
-    bool            mana( void );
-    bool            hp( void );
-    void            useMana( void );
     
     void            setName( std::string name );
     void            setHitPoint( int hp );

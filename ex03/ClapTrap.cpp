@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:38:32 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/26 16:29:48 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:26:04 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ ClapTrap::~ClapTrap()
 
 
 
-bool    ClapTrap::mana( void )
+bool    ClapTrap::_mana( void )
 {
     if (_energyPoint)
         return (1);
@@ -53,7 +53,7 @@ bool    ClapTrap::mana( void )
     return (0);
 }
 
-bool    ClapTrap::hp( void )
+bool    ClapTrap::_hp( void )
 {
     if (_hitPoint)
         return (1);
@@ -61,7 +61,7 @@ bool    ClapTrap::hp( void )
     return (0);
 }
 
-void    ClapTrap::useMana( void )
+void    ClapTrap::_useMana( void )
 {
     _energyPoint--;
 }
@@ -114,14 +114,14 @@ int      ClapTrap::getAttackDamage( void ) const
 
 void    ClapTrap::attack(const std::string& target)
 {
-    if (!hp() || !mana())
+    if (!_hp() || !_mana())
         return ;
     
     std::cout << "ClapTrap " << _name << " attacks " << target
         << ", causing " << _attackDamage
         << " points of damage!" << std::endl;
     
-    useMana();
+    _useMana();
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
@@ -140,11 +140,11 @@ void    ClapTrap::takeDamage(unsigned int amount)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if (!hp() || !mana())
+    if (!_hp() || !_mana())
         return ;
     _hitPoint += amount;
     
     std::cout << "ClapTrap " << _name << " heals +" << amount
         << "\tHP: " << _hitPoint << std::endl;
-    useMana();
+    _useMana();
 }
