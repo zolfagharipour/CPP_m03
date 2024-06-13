@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:37:13 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/26 16:25:19 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/13 11:18:25 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap
 {
-private:
+protected:
     std::string _name;
     int         _hitPoint;
     int         _energyPoint;
