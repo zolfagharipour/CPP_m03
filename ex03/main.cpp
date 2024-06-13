@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:39:06 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/06/01 15:56:21 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/13 11:49:59 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,14 @@ int main()
     std::cout << "SCAV: " << scav.getAttackDamage() << std::endl;
     std::cout << "FRAG: " << frag.getAttackDamage() << std::endl;
 
+    std::cout << "HITPOINT:" << std::endl;
+
+    std::cout << "--------------" << std::endl;
     dia.guardGate();
+    std::cout << "--------------" << std::endl;
     dia.highFivesGuys();
+    std::cout << "--------------" << std::endl;
     dia.attack("peter");
+    std::cout << "--------------" << std::endl;
+    dia.WhoAmI();
 }
