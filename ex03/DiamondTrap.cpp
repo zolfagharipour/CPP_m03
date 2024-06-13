@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 20:11:46 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/06/13 12:20:37 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:33:17 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap( std::string name )
     , FragTrap(name + "_clap_name")
     , _name(name)
 {
-    std::cout << "DiamondTrap " << name << " has been born!" << std::endl;  
+    std::cout << "DiamondTrap " << _name << " has been born!" << std::endl;  
     setEnergyPoint(getScavMana());
 }
 
