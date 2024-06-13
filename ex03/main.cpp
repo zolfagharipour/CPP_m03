@@ -6,7 +6,7 @@
 /*   By: mzolfagh <mzolfagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 19:39:06 by mzolfagh          #+#    #+#             */
-/*   Updated: 2024/05/26 20:55:06 by mzolfagh         ###   ########.fr       */
+/*   Updated: 2024/06/01 15:56:21 by mzolfagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,23 @@ int main()
     DiamondTrap dia("dia");
     ScavTrap    scav("scav");
     FragTrap    frag("frag");
+
+    std::cout << "HITPOINT:" << std::endl;
+    std::cout << "DIA:  " <<  dia.getHitPoint() << std::endl;
+    std::cout << "SCAV: " << scav.getHitPoint() << std::endl;
+    std::cout << "FRAG: " << frag.getHitPoint() << std::endl;
     
+    std::cout << "ENERGYPOINT:" << std::endl;
     std::cout << "DIA:  " <<  dia.getEnergyPoint() << std::endl;
     std::cout << "SCAV: " << scav.getEnergyPoint() << std::endl;
     std::cout << "FRAG: " << frag.getEnergyPoint() << std::endl;
+
+    std::cout << "ATTACKDAMAGE:" << std::endl;
+    std::cout << "DIA:  " <<  dia.getAttackDamage() << std::endl;
+    std::cout << "SCAV: " << scav.getAttackDamage() << std::endl;
+    std::cout << "FRAG: " << frag.getAttackDamage() << std::endl;
+
+    dia.guardGate();
+    dia.highFivesGuys();
+    dia.attack("peter");
 }
